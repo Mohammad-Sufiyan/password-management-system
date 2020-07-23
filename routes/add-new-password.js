@@ -1,0 +1,95 @@
+var express = require('express');
+var router = express.Router();
+var userModule=require('../module/user');
+var passCatModel=require('../module/passwordCategory');
+var passModel=require('../module/addPassword');
+var bcrypt=require('bcryptjs')
+var jwt=require('jsonwebtoken');
+const { LocalStorage } = require('node-localstorage');
+const {check, validationResult } = require('express-validator');
+
+const passCateModel = require('../module/passwordCategory');
+ var getPassCat=passCateModel.find({});
+ var getAllPass=passModel.find({});
+/* GET home page. */
+
+
+function checkLoginUser(req,res,next){
+  var userToken=localStorage.getItem('userToken');
+  try{
+var decoded= jwt.verify(userToken,'loginToken')
+  }catch(err){
+    res.redirect('/');
+  }
+  next();
+}
+
+
+
+
+if(typeof localStorage === "undefined" || localStorage === null){
+  var localStorage = require('node-localstorage').localStorage;
+  localStorage = new LocalStorage('./scratch');
+}
+
+
+
+function checkUsername(req,res,next){
+  var username=req.body.txt3;
+  var checkexistUsername=userModule.findOne({username:username});
+  checkexistUsername.exec(function(err,data){
+if(err) throw err;
+if(data){
+return res.render('signup', { title: 'Password Management System',msg:'Username already exist' });
+}
+next();
+  });  
+ }
+
+
+ function checkEmail(req,res,next){
+  var email=req.body.txt4;
+  var checkexistemail=userModule.findOne({email:email});
+  checkexistemail.exec(function(err,data){
+if(err) throw err;
+if(data){
+return res.render('signup', { title: 'Password Management System',msg:'Email already exist' });
+}
+next();
+  });  
+ }
+
+ router.get('/',checkLoginUser, function(req, res, next) {
+    var loginUser=localStorage.getItem('loginUser');
+    getPassCat.exec(function(err,data){
+      if(err) throw err;
+      res.render('addNewPassword', { title: 'Password Category List',loginUser:loginUser,records:data,success:'' });
+    });
+   
+  
+  });
+  
+  router.post('/',checkLoginUser, function(req, res, next) {
+    var loginUser=localStorage.getItem('loginUser');
+    var pass_cate=req.body.pass_cate;
+    var pass_detail=req.body.pass_details;
+    var project_name=req.body.project_name;
+    var password_details=new passModel({
+      password_category:pass_cate,
+      project_name:project_name,
+      password_detail:pass_detail
+    });
+    
+      password_details.save(function(err,doc){
+        getPassCat.exec(function(err,data){
+          if(err) throw err;
+        res.render('addNewPassword', { title: 'Password Category List',loginUser:loginUser,records:data,success:'Password Details Inserted Successfully!!!' });
+  
+      });
+     
+    });
+   
+  
+  });
+  
+module.exports = router;

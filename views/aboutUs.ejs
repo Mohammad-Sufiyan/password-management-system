@@ -1,0 +1,68 @@
+<%- include('header') %>
+                                    
+<img  src="../public/images/images.jpg" alt="image" width="100" height="100">                              
+<div class="container">
+    <div class="row">
+      
+      <div id="loginbox" style="margin-top: 50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <div class="panel-title">Personal Info </div>
+            </div>
+  <div class="panel-body">
+    <form action="/About-us" class="form-horizontal" method="POST"  enctype="multipart/form-data">
+      <% if(success !='') { %>
+        <p><%= success %></p>
+        <% } %>
+     <div class="form-group">
+        <div class="form-group">
+          <img  src="../public/images/images.jpg" alt="image" width="100" height="100">
+        <div class="col-md-9">
+         
+        </div>
+        </div>
+
+      <label for="UserName" class="col-md-3 control-label">Developed By</label>
+<div class="col-md-9">
+    <label for="UserName" class="col-md-3 control-label">Mohammad Sufiyan</label>
+</div>
+</div>
+<div class="form-group">
+    <label for="UserName" class="col-md-3 control-label">Purpose</label>
+<div class="col-md-9">
+  <label for="UserName" class="col-md-9 control-label">It is used to manage a lot of Password which is not managed by any human</label>
+</div>
+</div>
+
+<div class="form-group">
+    <label for="UserName" class="col-md-3 control-label">Contact Number</label>
+<div class="col-md-9">
+  <label for="UserName" class="col-md-3 control-label">7738771175</label>
+</div>
+</div>
+<div class="form-group">
+    <label for="UserName" class="col-md-3 control-label">Language Used</label>
+<div class="col-md-9">
+  <label for="UserName" class="col-md-3 control-label">nodejs,Expressjs,mongodb</label>
+</div>
+</div>
+
+<div class="form-group">
+    <label for="UserName" class="col-md-3 control-label">Email</label>
+<div class="col-md-9">
+  <label for="UserName" class="col-md-3 control-label">mdsufiyanidrisi786@gmail.com</label>
+</div>
+</div>
+
+     
+<p> <a href="/dashboard">Back to Home</a></p>
+  
+  </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+    
+<%- include('footer') %>
