@@ -74,9 +74,8 @@ router.post('/', function(req, res, next) {
   var password=req.body.txt2;
   var checkUser=userModule.findOne({username:username});
   checkUser.exec(function(err, data){
-if(err) throw err;
-var getUserId=data._id;
-var getPassword=data.password;
+var getUserId=data?data._id:null;
+var getPassword=data?data.password:password;
 if(bcrypt.compareSync(password,getPassword)){
   var token = jwt.sign({userId:getUserId}, 'loginToken');
   localStorage.setItem('userToken', token);
