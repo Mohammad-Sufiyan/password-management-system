@@ -1,17 +1,16 @@
 # Fitness-App
 
-Fitness App is an Online Platform where peers can compete with each other on exercise and build a streak that resembles consistency.<br>
-What is the most important thing after Diet in Fitness.Yes you guessed it right!!! Its the consistency that helps people achieve their goal.<br>
-Fitness-App focuses on building consistency among peers for exercises and building a streak through it which helps users track their journey.Besides this we also have a lot of features such as Discussion Forum,Leaderboard,Contest etc.Every Day a new Exercise is unlocked which focused on a particular muscle and is available throughout the day for you to perform and build streak.Each Exercise is of 30 seconds after doing it you can claim your streak by just click of a button.<br>
+Password memorizing is big problem for any person because one person can have multiple password So it's difficult to remember all these password<br>
+This system solves memorizing problem for any person and it can help to store many password with the specifies notes.User can also edit and delete the password whatever they want<br>
+
 
 # Features
 
 1. Login/Register
-2. Contest/Compete Section
-3. Leaderboard
-4. Discussion Forum
-5. Personalize Dashboard
-6. Edit Profile
+2. Add/Edit/Veiw Password Category
+3. Add/Edit/Veiw Password 
+4. Dashboard Page
+5. Logout
 
 
 <h1>Getting Started</h1>
