@@ -12,6 +12,12 @@ This system solves memorizing problem for any person and it can help to store ma
 4. Dashboard Page
 5. Logout
 
+# Technology Used
+1. html
+2. css
+3. javascript
+4. nodejs
+5. Mongodb
 
 <h1>Getting Started</h1>
 <p>These instructions will get you a copy of the project up and running on your local machine for development .</p>
